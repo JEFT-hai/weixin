@@ -1,0 +1,22 @@
+<!--pages/posts/post.wxml-->
+<import src="post-item/post-item-template.wxml"/>
+<view>
+    <swiper catchtap="onSwiperTap" indicator-dots="true" autoplay="true" interval="5000">
+        <swiper-item>
+            <image src="/images/post/xiaolong.jpg" data-postId = '3'></image>
+        </swiper-item>
+        <swiper-item>
+            <image src="/images/post/bl.png" data-postId = '2'></image>
+        </swiper-item>
+        <swiper-item>
+            <image src="/images/post/vr.png" data-postId = '4'></image>
+        </swiper-item>    
+    </swiper>
+    
+    <block wx:for="{{postlist}}" wx:for-item="item">
+        <view catchtap="onPostTap" data-postId = "{{item.postId}}">
+            <template is = "postItem" data = "{{...item}}"/>
+        </view>    
+    </block>
+</view>
+
